@@ -267,73 +267,24 @@
       <geometry>
         <mesh filename="package://movo_description/meshes/manipulation/robotiq/visual/robotiq_85_finger_tip_link.obj"/>
       </geometry>
-    </visual>
-    <!-- manually add spheres until hydroelastic is enabled -->
-    <collision>
-      <origin xyz="0.007 0.00775 0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.016375 0.00775 0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.02575 0.00775 0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.035125 0.00775 0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.0445 0.00775 0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.007 0.00775 -0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.016375 0.00775 -0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.02575 0.00775 -0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.035125 0.00775 -0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.0445 0.00775 -0.011"/>
-      <geometry>
-        <sphere radius="1e-7"/>
-      </geometry>
-    </collision>
+    </visual>    
     <inertial>
       <mass value="0.019555"/>
       <origin xyz="0.0 0.0 0.0"/>
       <inertia ixx="0.000002" ixy="0.000000" ixz="0.000000" iyx="0.000000" iyy="0.000005" iyz="0.000000" izx="0.000000" izy="0.000000" izz="0.000006"/>
     </inertial>
+    <collision name="box_collision">
+        <geometry>
+          <box size="0.054846 0.022487 0.022000"/>
+        </geometry>
+        <drake:proximity_properties>          
+          <drake:mu_static value="1.0"/>
+          <drake:mu_dynamic value="1.0"/>
+          <drake:hydroelastic_modulus value = "1.0e5" />
+          <drake:hunt_crossley_dissipation value = "10.0" />
+          <drake:compliant_hydroelastic/>
+        </drake:proximity_properties>
+    </collision>
   </link>
   <gazebo reference="gripper_finger1_finger_tip_link">
     <implicitSpringDamper>1</implicitSpringDamper>
@@ -347,24 +298,24 @@
       <geometry>
         <mesh filename="package://movo_description/meshes/manipulation/robotiq/visual/robotiq_85_finger_tip_link.obj"/>
       </geometry>
-    </visual>
-    <collision>
-      <!-- box for finger tip computed by measuring in blender -->
-      <origin xyz="0.02575 0.004375 0"/>
-      <geometry>
-        <box size="0.0375 0.00675 0.022"/>
-      </geometry>
-      <!--
-                <geometry>
-                    <mesh filename="package://movo_description/meshes/manipulation/robotiq/collision/robotiq_85_finger_tip_link.obj"/>
-                </geometry>
-              -->
-    </collision>
+    </visual>       
     <inertial>
       <mass value="0.019555"/>
       <origin xyz="0.0 0.0 0.0"/>
       <inertia ixx="0.000002" ixy="0.000000" ixz="0.000000" iyx="0.000000" iyy="0.000005" iyz="0.000000" izx="0.000000" izy="0.000000" izz="0.000006"/>
     </inertial>
+    <collision name="box_collision">
+        <geometry>
+          <box size="0.054846 0.022487 0.022000"/>
+        </geometry>
+        <drake:proximity_properties>          
+          <drake:mu_static value="1.0"/>
+          <drake:mu_dynamic value="1.0"/>
+          <drake:hydroelastic_modulus value = "1.0e5" />
+          <drake:hunt_crossley_dissipation value = "10.0" />
+          <drake:compliant_hydroelastic/>
+        </drake:proximity_properties>
+    </collision>
   </link>
   <gazebo reference="gripper_finger2_finger_tip_link">
     <implicitSpringDamper>1</implicitSpringDamper>
